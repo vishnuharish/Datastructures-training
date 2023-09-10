@@ -28,7 +28,7 @@ class LinkedList:
             return None
         temp = self.head
         pre = self.head
-        while self.temp.next != None:
+        while temp.next != None:
             pre = temp
             temp= temp.next
         self.tail = pre
@@ -104,15 +104,15 @@ class LinkedList:
         temp = before.next
         before.next = temp.next
         temp.next = None
-        this.length -= 1
+        self.length -= 1
         return temp
-|
+
     def printList(self):
         temp = self.head
         while temp:
-            print(temp.value, " -> ", end="")
+            print("|", temp.value, "|", " -> ", end="")
             temp = temp.next
-        print("")
+        print("None")
 
 
 

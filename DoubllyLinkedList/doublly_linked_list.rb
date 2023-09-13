@@ -32,6 +32,23 @@ module DoubllyLinkedListModule
             return self
         end
 
+        def pop()
+            if is_empty?
+                return nil
+            end
+            if self.length == 1
+                @head = nil
+                @tail = nil
+            else
+                temp = @tail
+                @tail = @tail.prev
+                @tail.next = nil
+                temp.prev = nil
+            end
+            @length -= 1
+            return temp
+        end
+
         private
         def is_empty?
             if(@head == nil)

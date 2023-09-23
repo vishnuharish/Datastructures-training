@@ -36,3 +36,15 @@ class DoubllyLinkedList():
             temp.prev = None
         self.length -= 1
         return temp
+    
+    def unshift(self, value):
+        node = Node(value)
+        if self.head == None:
+            self.head = node
+            self.tail = node
+        else:
+            node.next = self.head
+            self.head.prev = node
+            self.head = node
+        self.length += 1
+        return self

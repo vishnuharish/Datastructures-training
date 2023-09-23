@@ -31,7 +31,7 @@ module DoubllyLinkedListModule
             @length += 1
             return self
         end
-
+        
         def pop()
             if is_empty?
                 return nil
@@ -47,6 +47,20 @@ module DoubllyLinkedListModule
             end
             @length -= 1
             return temp
+        end
+
+        def unshift(value)
+            node = Node.new(value)
+            if is_empty?
+                @head = node
+                @tail = node
+            else
+                node.next = @head
+                @head.prev = node
+                @head = node
+            end
+            @length += 1
+            return self
         end
 
         private

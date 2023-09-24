@@ -63,6 +63,23 @@ module DoubllyLinkedListModule
             return self
         end
 
+        def shift()
+            if is_empty?
+                return nil
+            end
+            temp = @head
+            if @length == 1
+                @head = null
+                @tail = null
+            else
+                @head = @head.next
+                @head.prev = nil
+                temp.next = nil
+            end
+            @length -= 1
+            return temp
+        end
+
         private
         def is_empty?
             if(@head == nil)

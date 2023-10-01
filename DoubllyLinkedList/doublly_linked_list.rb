@@ -10,7 +10,7 @@ module DoubllyLinkedListModule
     end
 
     class DoubllyLinkedList
-        attr_accessor :head, :tail, :length
+        attr_reader :head, :tail, :length
         def initialize(value)
            node = Node.new(value)
            @head = node
@@ -77,6 +77,29 @@ module DoubllyLinkedListModule
                 temp.next = nil
             end
             @length -= 1
+            return temp
+        end
+        
+        def find(index)
+            if(index < 0 or index > @length)
+                return nil
+            end
+            temp = @head
+            if(index < @length/2)
+                count = 0
+                while(count < index)
+                    temp = temp.next
+                    count += 1
+                end
+            end
+            if(index > @length/2)
+                temp = @tail
+                count = @length - 1
+                while (count > index)
+                    temp = temp.prev
+                    count -= 1
+                end
+            end
             return temp
         end
 

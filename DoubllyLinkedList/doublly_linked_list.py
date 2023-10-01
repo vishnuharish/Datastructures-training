@@ -62,4 +62,20 @@ class DoubllyLinkedList():
             temp.next = None
         self.length -= 1
         return temp
-    
+
+    def find(self, index):
+        if(index < 0 or index > self.length):
+            return None
+        temp = self.head
+        if(index < self.length / 2):
+            count = 0
+            while count < index:
+                temp = temp.next
+                count += 1
+        if(index > self.length / 2):
+            temp = self.tail
+            count = self.length - 1
+            while count > index:
+                temp = temp.prev
+                count -= 1
+        return temp

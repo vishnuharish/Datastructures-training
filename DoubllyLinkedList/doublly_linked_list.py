@@ -79,3 +79,10 @@ class DoubllyLinkedList():
                 temp = temp.prev
                 count -= 1
         return temp
+    
+    def setValue(self, index, value):
+        node = self.find(index)
+        if(node):
+            node.value = value
+            return True
+        return False

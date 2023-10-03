@@ -103,6 +103,15 @@ module DoubllyLinkedListModule
             return temp
         end
 
+        def setValue(index, value)
+          node = find(index)
+          if(node != nil)
+            node.value = value
+            return true
+          end
+          return false
+        end
+
         private
         def is_empty?
             if(@head == nil)

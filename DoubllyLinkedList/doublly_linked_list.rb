@@ -111,6 +111,47 @@ module DoubllyLinkedListModule
           end
           return false
         end
+        def insert(index, value)
+            if(index == 0)
+                return unshift(value)
+            end
+            if(index == @length)
+                return push(value)
+            end
+            if(index < 0 or index > @length)
+                return nil
+            end
+
+            new_node = Node.new(value)
+
+            before = find(index - 1)
+            after = before.next
+            before.next = new_node
+            new_node.prev = before
+            after.prev = new_node
+            new_node.next = after
+            @length += 1
+            return self
+        end
+
+        def remove(index)
+            if(index == 0)
+                return shift()
+            end
+            if(index == @length)
+                return pop()
+            end
+            if(index < 0 or index > length)
+                return nil
+            end
+            node = find(index)
+            node.prev.next = node.next
+            node.next.prev = node.prev
+            node.next = nil
+            node.prev = nil
+            @length -= 1
+            return nil
+        end
 
         private
         def is_empty?

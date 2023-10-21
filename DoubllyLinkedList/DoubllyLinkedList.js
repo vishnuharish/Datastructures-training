@@ -97,4 +97,30 @@ class DoubllyLinkedList {
     }
     return false;
   }
+  insert(index, value){
+    if(index === 0) return this.unshift(value)
+    if(index === this.length) return this.push(value)
+    if(index < 0 || index > this.length) return false
+    const newNode = new Node(value);
+    const before = this.get(index - 1)
+    const after = before.next
+    before.next = newNode;
+    newNode.prev = before
+    newNode.next = after;
+    before.prev = newNode;
+    this.length ++
+    return true;
+  }
+  remove(index){
+    if(index === 0 ) return this.shift()
+    if(index === this.length) return this.pop()
+    if(index < 0 || index > this.length) return false
+    const node = this.get(index)
+    node.prev.next = node.next
+    node.next.prev = node.prev
+    node.next = null
+    node.prev = null
+    this.length --
+    return temp
+  }
 }

@@ -86,3 +86,36 @@ class DoubllyLinkedList():
             node.value = value
             return True
         return False
+    
+    def insert(self, index, value):
+        if(index == 0):
+            return self.unshift(value)
+        if(index == self.length):
+            return self.push(value)
+        if(index < 0 or index > self.length):
+            return None
+        new_node = Node(value)
+        before = self.find(index - 1)
+        after = before.next
+        before.next = new_node
+        new_node.prev = before
+        new_node.next = after
+        after.prev = new_node
+        self.length += 1
+        return True
+    
+    def remove(self, index):
+        if(index == 0):
+            return self.shift()
+        if(index == self.length):
+            return self.pop()
+        if(index < 0 or index > self.length):
+            return None
+        node = self.find(index)
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        node.next = None
+        node.prev = None
+        self.length -= 1
+        return node
+

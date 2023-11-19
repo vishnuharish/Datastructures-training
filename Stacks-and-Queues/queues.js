@@ -32,9 +32,10 @@ class Queue {
     if(this.length === 1) {
       this.first = null;
       this.last = null;
+    } else {
+      this.first = this.first.next;
+      temp.next = null;
     }
-    this.first = this.first.next;
-    temp.next = null;
     this.length -= 1;
     return temp;
   }

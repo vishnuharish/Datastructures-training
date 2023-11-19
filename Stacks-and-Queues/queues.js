@@ -5,7 +5,6 @@ class Node {
   }
 }
 
-
 class Queue {
   cosntructor(value){
     const newNode = new Node(value);

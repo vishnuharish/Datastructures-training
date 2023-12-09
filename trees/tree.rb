@@ -58,6 +58,14 @@ module BinarySearchTree
       end
       return false
     end
+
+    def min_value_node(current_node)
+      while(!current_node.left.nil?)
+        current_node = current_node.left
+      end
+      return current_node
+    end
   end
+
   
 end

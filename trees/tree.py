@@ -41,3 +41,9 @@ class BST:
             else:
                 return True
         return False
+
+    def min_value_node(self, current_node):
+        while current_node.left != None:
+            current_node = current_node.left
+        return current_node
+        

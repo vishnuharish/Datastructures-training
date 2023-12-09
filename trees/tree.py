@@ -1,4 +1,4 @@
-class Tree:
+class Node:
     def __init__(self, value):
         self.value = value
         self.left = None
@@ -7,7 +7,7 @@ class Tree:
 
 class BST:
     def __init__(self):
-        self.root = null
+        self.root = None
 
     def insert(self, value):
         new_node = Node(value)
@@ -24,7 +24,20 @@ class BST:
                     return self
                 temp = temp.left
             else:
-                if temp.right === None:
+                if temp.right == None:
                     temp.right = new_node
                     return self
                 temp = temp.right
+
+    def contains(self, value):
+        if(self.root == None):
+            return False
+        temp = self.root
+        while(temp):
+            if(value < temp.value):
+                temp = temp.left
+            elif value > temp.value:
+                temp = temp.right
+            else:
+                return True
+        return False

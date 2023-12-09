@@ -41,6 +41,23 @@ module BinarySearchTree
         end
       end
     end
+
+    def contains?(value)
+      if @root.nil?
+        return false
+      end
+      temp = @root
+      while temp
+        if value < temp.value
+          temp = temp.left
+        elsif value > temp.value
+          temp = temp.right
+        else
+          return true
+        end
+      end
+      return false
+    end
   end
   
 end
